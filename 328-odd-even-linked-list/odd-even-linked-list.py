@@ -12,6 +12,8 @@ class Solution(object):
         if(head == None or head.next == None):
             return head
 
+        ''' 
+        Brute force solution : 
         arr = []
         # Here this jump for odd index data
         temp = head
@@ -34,4 +36,24 @@ class Solution(object):
             temp.val = arr[i]
             i += 1
             temp = temp.next
-        return head            
+        return head  '''
+
+        # Optimised solution
+        odd = head
+        even = head.next
+        even_head = head.next
+        
+        # Here condition is the : if even has reached the end or not . if even has reached the end then odd also reach
+        while(even != None and even.next != None):
+            #  Here change the links
+            odd.next = odd.next.next 
+            even.next = even.next.next
+
+            #  pointers moving
+            odd = odd.next
+            even = even.next
+            
+            #  Here this is for the last link for odd to even
+        odd.next = even_head
+        return head        
+
