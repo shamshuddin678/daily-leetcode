@@ -6,12 +6,9 @@ class Solution(object):
         """
         if not nums:
             return 0
-
-        i = 0
-
-        for j in range(1, len(nums)):
-            if nums[i] != nums[j]:
-                i += 1
-                nums[i] = nums[j]
-
-        return i + 1           
+        res = 1
+        for i in range(1,len(nums)):
+            if(nums[i] != nums[i-1]):
+                nums[res] = nums[i]
+                res +=1
+        return res                       
