@@ -17,7 +17,34 @@ class Solution(object):
             ans.append(prod)
         return ans'''
 
-        # optimal solution
+        #  Optimal solution for time complexity
+        n = len(nums)
+
+        prefix = [1] * n
+        suffix = [1] * n
+        ans = [1] * n
+
+        # Build Prefix Array
+        for i in range(1, n):
+            prefix[i] = prefix[i - 1] * nums[i - 1]
+
+        # Build Suffix Array
+        for i in range(n - 2, -1, -1):
+            suffix[i] = suffix[i + 1] * nums[i + 1]
+
+        # Build Answer
+        for i in range(n):
+            ans[i] = prefix[i] * suffix[i]
+
+        return ans   
+        
+        
+        
+        
+        
+        
+        
+        '''# optimal solution space complexity = O(1)
         n = len(nums)
         ans = [1] * n
 
@@ -31,4 +58,4 @@ class Solution(object):
             suffix *= nums[i+1]
             ans[i] *= suffix
 
-        return ans  
+        return ans  '''
