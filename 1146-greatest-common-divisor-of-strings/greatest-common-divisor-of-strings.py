@@ -3,7 +3,7 @@ class Solution(object):
     def gcd(self, a, b):
         while b != 0:
             a, b = b, a % b
-        return a
+        return a 
 
     def gcdOfStrings(self, str1, str2):
 
