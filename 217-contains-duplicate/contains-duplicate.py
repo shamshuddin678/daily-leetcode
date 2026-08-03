@@ -4,10 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
-        '''Here the one line 
-        return len(nums) != len(set(nums))'''
-        # using the set 
+        # return len(nums) != len(set(nums))
+         
+        # using set
         seen = set()
 
         for num in nums:
