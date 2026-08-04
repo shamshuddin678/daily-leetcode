@@ -1,8 +1,8 @@
 class Solution {
     public int[][] matrixBlockSum(int[][] mat, int k) {
+        //   Brute force approach 
         int m = mat.length;
         int n = mat[0].length;
-
 
         int [][] answer = new int [m][n];
         for(int i = 0; i < m; i++){
@@ -18,6 +18,7 @@ class Solution {
                 answer[i][j] = sum;
             }
         }
-        return answer;
+        return answer; 
+
     }
 }
