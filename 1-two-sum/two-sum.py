@@ -6,10 +6,9 @@ class Solution(object):
         :rtype: List[int]
         """
         n = len(nums)
-        
+
+        # Brute force
         for i in range(n):
-            for j in range(n):
-                if(i == j):
-                    continue
+            for j in range(i+1,n):
                 if(nums[i] + nums[j] == target):
-                    return i,j    
+                    return i,j
