@@ -10,3 +10,5 @@ class Solution(object):
             while(n % i == 0):
                 n = n // i
         return n == 1
+
+        #  1 = ugly number 2^0 , 3^0, 5^0 
