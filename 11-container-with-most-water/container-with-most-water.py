@@ -4,18 +4,22 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        i = 0
-        j = len(height) - 1
-        maxarea = 0
+        n = len(height)
+        max_water = 0
+        left = 0
+        right = len(height) - 1
+        # two pointer -> inward traversal approach
+        while(left < right):
+            water = min(height[left],height[right]) * (right - left)
+            max_water = max(max_water,water)
 
-        while i < j:
-            width = j - i
-            h = min(height[i], height[j])
-            area = width * h
-            maxarea = max(maxarea, area)
-            if height[i] < height[j]:
-                i += 1
+            # moves pointers -> inward
+            if(height[left] < height[right]):
+                left += 1
+            elif(height[left] > height[right]):
+                right -= 1
             else:
-                j -= 1
-
-        return maxarea
+                # if 2 heighta are equal
+                left += 1
+                right -= 1
+        return max_water
