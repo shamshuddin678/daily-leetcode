@@ -21,5 +21,5 @@ class Solution(object):
 
         if(max_sum < 0):
             return max_sum
-        circular = total - min_sum
+        circular = total - min_sum # here removing the min_sum part
         return max(max_sum,circular)
