@@ -1,12 +1,23 @@
-class Solution:
-    def validPalindrome(self, s: str) -> bool:
-            p1=0
-            p2=len(s)-1
-            while p1<=p2:
-                if s[p1]!=s[p2]:
-                    string1=s[:p1]+s[p1+1:]
-                    string2=s[:p2]+s[p2+1:]
-                    return string1==string1[::-1] or string2==string2[::-1]
-                p1+=1
-                p2-=1
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        def ispalindrome(left,right):
+            while(left < right):
+                if(s[left] != s[right]):
+                    return False
+                left += 1
+                right -= 1
             return True
+        left = 0
+        right = len(s) - 1
+        while(left < right):
+            if(s[left] != s[right]):
+                # here skip either left or right
+                return ispalindrome(left + 1,right) or ispalindrome(left,right - 1)
+            left += 1
+            right -= 1
+        return True
+            
