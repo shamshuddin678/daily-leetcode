@@ -1,33 +1,9 @@
-class Solution(object):
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        candidate1 = None
-        candidate2 = None
-
-        count1 = 0
-        count2 = 0
-
-        for num in nums:
-            if(num == candidate1):
-                count1 += 1
-            elif(num == candidate2):
-                count2 += 1
-            elif(count1 == 0):
-                candidate1 = num
-                count1 = 1
-            elif(count2 == 0):
-                candidate2 = num
-                count2 = 1
-            else:
-                count1 -= 1
-                count2 -= 1
-        # verify candidate
+from collections import Counter
+class Solution:
+    def majorityElement(self, nums: list[int]) -> list[int]:
+        freq = Counter(nums)
         res = []
-        if(nums.count(candidate1) > len(nums) // 3):
-            res.append(candidate1)
-        if(nums.count(candidate2) > len(nums) // 3):
-            res.append(candidate2)
+        for num,count in freq.items():
+            if(count > len(nums) // 3):
+                res.append(num)
         return res
