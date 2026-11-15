@@ -4,6 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        for i in range(1,len(nums)):
-            nums[i] += nums[i-1]
-        return nums
+        n = len(nums)
+        prefix = [0] * n
+        for num in range(n):
+            prefix[num] = prefix[num - 1] + nums[num]
+        return prefix 
